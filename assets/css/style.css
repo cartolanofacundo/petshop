@@ -1,0 +1,52 @@
+*{ margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.presentacion{
+    box-shadow:
+    inset 0 -3em 3em rgba(0,0,0,0.1),
+          0 0  0 2px rgb(255,255,255),
+          0.3em 0.3em 1em rgba(0,0,0,0.3);
+    margin-top: 2rem;
+}
+
+.carouselExampleControlsNoTouching{
+    width: 100vw;
+}
+
+.carousel-inner{
+    width: 100vw;
+}
+
+.carousel-item img{
+    height: 60vh;
+    width: 100vw;
+    object-fit:contain;
+    object-position: start;
+    
+}
+
+
+.carousel-item video{
+
+    height: 70vh;
+    width: 100vw;
+    object-fit:contain;
+}
+
+
+.circular{
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  .circular img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+  }
