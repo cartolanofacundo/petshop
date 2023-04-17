@@ -1,0 +1,85 @@
+:root {
+    --color-primary: #e54347;
+    --bg-primary: #F9E7E7;
+    --color-secondary: #003652;
+    --white: #fff;
+}
+
+* {
+    font-family: 'Dongle', sans-serif !important;
+}
+.full-height {
+    height: 100vh;
+}
+.hero-pharmacy{
+    background-color: var(--bg-primary);
+    display: flex;
+    height: 40vh;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-hero{
+    color: var(--color-secondary);
+    font-size: 6rem !important;
+    font-weight: bolder !important;
+}
+.subtitle-hero{
+    color: var(--color-secondary);
+    font-size: 2rem !important;
+    font-weight: bolder !important;
+}
+
+.categories-container{
+    margin-top: -5rem
+}
+.title{
+    color: var(--color-secondary);
+    font-size: 3rem !important;
+    font-weight: bolder !important;
+}
+.btn-category{
+    border-color: var(--color-secondary) !important;
+    color: var(--color-secondary) !important;
+    font-size: 1.5rem !important;
+    border-radius: 1.5rem;
+}
+.btn-check:checked+.btn{
+    background-color: var(--color-secondary) !important;
+    color: var(--white) !important;
+    font-size: 1.5rem !important;
+}
+.search-bar{
+    font-size: 1.5rem;
+    border-radius: 1.5rem;
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+.search-bar:focus{
+    color: var(--color-secondary) !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    border-color: var(--color-secondary);
+}
+/* PRODUCT CARD 2 */
+.product-card {
+    border: none;
+    background-color: var(--bg-primary) !important;
+    font-size: 1.5rem;
+}
+
+.rounded-price {
+    font-weight: bold !important;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 0;
+    width: 40%;
+    text-align: center;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 0;
+    border: none;
+    color: var(--color-primary) !important;
+    background-color: var(--bg-primary) !important;
+    font-size: 2rem !important;
+}
+
+.badge {
+    z-index: 1200;
+}
