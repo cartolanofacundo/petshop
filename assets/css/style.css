@@ -1,22 +1,10 @@
-
-.container {
+/* SECCION CHECKOUT */
+.container-checkout {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     background-color:#E59866 ;
     padding: 2rem;
-  }
-  .navbar{
-    background-color: #555!important;
-    display: flex!important;
-    justify-content: space-between!important;
-  }
-  .container-fluid{
-    background-color: white!important;
-    background-size: auto!important;
-    width: 500px;
-    height: 75px;
-    border-radius: 10px;
   }
   .order-img{
     width: 200px;
@@ -30,13 +18,13 @@
     background-color: blanchedalmond;
     border-radius: 9px;
   }
-  form {
+  .form-container {
     display: flex;
     flex-direction: column;
     padding: 2rem;
   }
   
-  label {
+  .label-checkout {
     margin-bottom: 10px;
     font-weight: bold;
   }
@@ -45,7 +33,7 @@
     height: 100px;
   }
   
-  input[type="text"], input[type="email"] {
+  .input-checkout[type="text"], .input-checkout[type="email"] {
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -53,7 +41,7 @@
     font-size: 16px;
   }
   
-  input[type="submit"] {
+  .input-checkout[type="submit"] {
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
@@ -63,11 +51,11 @@
     cursor: pointer;
   }
   
-  input[type="submit"]:hover {
+  .input-checkout[type="submit"]:hover {
     background-color: #555;
   }
 
-
+/* SECCION CONTACT */
 /* clases boostrap */
 .custom-input {
   width: 30%;
