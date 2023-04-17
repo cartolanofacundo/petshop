@@ -1,3 +1,31 @@
+
+.modal-content{
+    -webkit-border-radius: 1.5rem;
+-moz-border-radius: 1.5rem;
+border-radius: 1.5rem;
+background-color: #F9E7E7;
+font-family: 'Dongle', sans-serif !important;
+font-size: x-large;
+}
+.modal-content h5{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.divmain{
+    background-color: #F9E7E7;
+}
+.divmain img{
+    width: 100%;
+    -webkit-border-radius: 1.5rem;
+-moz-border-radius: 1.5rem;
+border-radius: 1.5rem;
+    
+}
+.btn1{
+    -webkit-border-radius: 1.5rem;
+-moz-border-radius: 1.5rem;
+border-radius: 1.5rem;
+=======
 :root {
     --color-primary: #e54347;
     --bg-primary: #F9E7E7;
@@ -300,4 +328,5 @@
   border-radius: 10%;
   transition: 1s;
   color: #fff;
+
 }
