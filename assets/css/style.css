@@ -222,9 +222,13 @@
 
 
 
-main {
+.main-contact {
+  background: url(../images/paw_prints_trail_across_screen.jpg);
   background-size: cover;
+  transform: rotate(180dg);
 }
+
+
 
 .formulario {
   background: url(../images/golosinas.jpg) no-repeat;
