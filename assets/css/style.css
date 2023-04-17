@@ -129,10 +129,13 @@
 
 /* SECCION CHECKOUT */
 .container-checkout {
-    max-width: 600px;
+   background: url("..//images/patitasreves.jpg");
+   background-size: cover;
     margin: 0 auto;
     padding: 20px;
-    background-color:#E59866 ;
+   width: 100%;
+   display: flex;
+   justify-content: center;
     padding: 2rem;
   }
   .order-img{
@@ -148,9 +151,13 @@
     border-radius: 9px;
   }
   .form-container {
-    display: flex;
-    flex-direction: column;
+    background: url(../images/golosinas.jpg) no-repeat;
+    background-size: cover;
+    color: #fff !important;
+    width: 45%;
+    border-radius: 2%;
     padding: 2rem;
+    box-shadow: 2px 36px 107px 1px rgba(0, 0, 0, 0.75);
   }
   
   .label-checkout {
@@ -222,9 +229,13 @@
 
 
 
-main {
+.main-contact {
+  background: url(../images/paw_prints_trail_across_screen.jpg);
   background-size: cover;
+  transform: rotate(180dg);
 }
+
+
 
 .formulario {
   background: url(../images/golosinas.jpg) no-repeat;
