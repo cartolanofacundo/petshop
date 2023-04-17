@@ -1,3 +1,52 @@
+
+.presentacion{
+    box-shadow:
+    inset 0 -3em 3em rgba(0,0,0,0.1),
+          0 0  0 2px rgb(255,255,255),
+          0.3em 0.3em 1em rgba(0,0,0,0.3);
+    margin-top: 2rem;
+}
+
+
+.carrusel-items{
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 20px 0px;
+  
+  }
+  .carrusel-item{
+    min-width: 300px;
+    max-width: 300px;
+    height: 150px;
+  }
+  
+  .carrusel-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .carrusel-item:hover{
+    transform: scale(1.2)
+  }
+
+
+.circular{
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  .circular img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+  }
+
 /* SECCION CHECKOUT */
 .container-checkout {
     max-width: 600px;
@@ -161,6 +210,7 @@ main {
   transition: 1s;
   color: #fff;
 }
+
 
 
 
