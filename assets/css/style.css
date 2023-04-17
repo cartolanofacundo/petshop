@@ -1,8 +1,72 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:#E59866 ;
+    padding: 2rem;
+  }
+  .navbar{
+    background-color: #555!important;
+    display: flex!important;
+    justify-content: space-between!important;
+  }
+  .container-fluid{
+    background-color: white!important;
+    background-size: auto!important;
+    width: 500px;
+    height: 75px;
+    border-radius: 10px;
+  }
+  .order-img{
+    width: 200px;
+    height: 200px;
+    background-color: blanchedalmond;
+    border-radius: 15px;
+    object-fit: contain;
+    background-size: cover;
+  }
+  .order >h5 > button{
+    background-color: blanchedalmond;
+    border-radius: 9px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .logo{
+    width: 200px;
+    height: 100px;
+  }
+  
+  input[type="text"], input[type="email"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #555;
+  }
+
 
 /* clases boostrap */
 .custom-input {
@@ -109,5 +173,6 @@ main {
   transition: 1s;
   color: #fff;
 }
+
 
 
