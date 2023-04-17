@@ -1,3 +1,4 @@
+
 const carrusel = document.querySelector(".carrusel-items");
  
 let intervalo = null;
@@ -26,3 +27,6 @@ carrusel.addEventListener('mouseout', () => {
 })
 
 start();
+
+
+
