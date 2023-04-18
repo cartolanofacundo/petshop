@@ -2,124 +2,169 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="sweetalert2.min.js"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
-  <script src="https://kit.fontawesome.com/1ade54c094.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Checkout</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HappyPest | Toys</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-  <div class="container-fluid bg-secondary">
-    <nav class="navbar navbar-expand-lg container justify-content-around" style="height: 14vh;">
-      <div>
-        <img class="d-flex align-items-center col-md-3" src="../images/logosofis.png" alt="" style="width: 10rem;">
-      </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="div-heigth collapse navbar-collapse d-flex justify-content-around form-control flex-grow-0 w-50 h-12"
-        id="navbarNav">
-        <ul class="navbar-nav d-flex col-12 justify-content-around">
-          <li class="nav-item">
-            <a class="nav-link border-rigth font-nav nav-hover" aria-current="page" href="/petshop/index.html">Home
-              🏠</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link border-rigth font-nav nav-hover" href="./pharmacy.html">Pharmacy 💊</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link border-rigth font-nav nav-hover" href="./toys.html">Toys 🦴</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link border-rigth font-nav nav-hover" href="./contact.html">Contact 📧</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled font-nav nav-hover" href="./checkout.html"><i class="fa-solid fa-cart-shopping">
-                Buy</i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+    <div class="full-height">
+        <header class="position-relative">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg py-3 no-background px-3 toys-navbar">
+                <div class="back-button">
+                    <button class="btn btn-primary d-flex" onclick="window.history.back()"><i
+                            class="bi bi-arrow-left-circle-fill me-2"></i>
+                        Volver</button>
+                </div>
+                <div class="container-fluid d-flex justify-content-center align-items-center w-100">
+                    <a class="navbar-brand flex-grow-0" href="#"><span class="title-primary">Happy</span><span
+                            class="title-secondary">Pets</span></a>
+                </div>
+            </nav>
+        </header>
+        <main class="flex-grow-1">
+            <section class="checkout-container p-5">
+                <div class="row">
+                    <div class="col-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
+                        <form action="post">
+                            <div class="data-container mb-3">
+                                <h2 class="title-data">Addres</h2>
+                                <div class="mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="street" class="form-label">Street Adress</label>
+                                    <input type="text" class="form-control" id="street">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="aptOptional" class="form-label">Apt, Suite, Building (optional)</label>
+                                    <input type="text" class="form-control" id="aptOptional">
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="zip" class="form-label">Zip code</label>
+                                            <input type="number" class="form-control" id="zip">
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="city" class="form-label">City</label>
+                                            <input type="text" class="form-control" id="city">
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="state" class="form-label">State</label>
+                                            <input type="text" class="form-control" id="state">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="data-container mb-3">
+                                <h2 class="title-data">Contact Information</h2>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="number" class="form-control" id="phone">
+                                </div>
+                            </div>
+                            <div class="data-container mb-3">
+                                <h2 class="title-data">Card Information</h2>
+                                <div class="mb-3">
+                                    <label for="cardNumber" class="form-label">Card number</label>
+                                    <input type="number" class="form-control" id="cardNumber">
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="expiration" class="form-label">Expiration MM/YY</label>
+                                            <input type="text" class="form-control" id="expiration">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="cvv" class="form-label">CVV</label>
+                                            <input type="number" class="form-control" id="cvv">
+                                        </div>
+                                    </div>
 
-  <div class="container-checkout">
-    <form class="form-container " id="miForm">
-      <h2>Checkout</h2>
-      <h3>Your order:</h3>
-      <div class="order">
-        <img src="..//images/dentasstix.png" class="order-img" alt="" srcset="">
-        <h5>Quantity: <button>+</button> 5 <button>-</button></h5>
-        <h5>Subtotal: $25,75</h5>
-      </div>
-      <label for="name" class="label-checkout">Name</label>
-      <input type="text" id="name" name="name" class="input-checkout">
-      <div id="errorName"></div>
-      <label for="email" class="label-checkout">Email</label>
-      <input type="email" id="email" name="email" class="input-checkout">
-      <div id="errorEmail"></div>
-      <label for="address" class="label-checkout">Address</label>
-      <input type="text" id="address" name="address" class="input-checkout">
-      <label for="city" class="label-checkout">City</label>
-      <input type="text" id="city" name="city" class="input-checkout">
-      <label for="zip" class="label-checkout">Zip Code</label>
-      <input type="text" id="zip" name="zip" class="input-checkout">
-      <label for="cardname" class="label-checkout">Name on Card</label>
-      <input type="text" id="cardname" name="cardname" class="input-checkout">
-      <label for="cardnumber" class="label-checkout">Card Number</label>
-      <input type="text" id="cardnumber" name="cardnumber" class="input-checkout">
-      <label for="expmonth" class="label-checkout">Expiration Month</label>
-      <input type="text" id="expmonth" name="expmonth" class="input-checkout">
-      <label for="expyear" class="label-checkout">Expiration Year</label>
-      <input type="text" id="expyear" name="expyear" class="input-checkout">
-      <label for="cvv" class="label-checkout">CVV</label>
-      <input type="text" id="cvv" name="cvv class=" input-checkout"">
-      <input type="submit" value="Place order" class="input-checkout">
-    </form>
-  </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Summary
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span class="price">Product cost:</span>
+                                            </div>
+                                            <div class="col-6 text-end" id="productsCost">$1550</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span class="price" >Shipping cost:</span>
+                                            </div>
+                                            <div class="col-6 text-end" id="shippingCost">$1550</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span class="price">Taxes:</span>
+                                            </div>
+                                            <div class="col-6 text-end" id="taxes">$1550</div>
+                                        </div>
+                                        <div class="row mt-3 fw-bold">
+                                            <div class="col-6">
+                                                <span class="price">Total:</span>
+                                            </div>
+                                            <div class="col-6 text-end" id="total">$4650</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3 w-100" id="makeAnOrder">Make an order</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer-bg">
 
+            <div class="text-center p-5">
+                <p class="footer-text">
+                    © 2023 Copyright: Facundo Cartolano / Joaquin Dimaro / Lucas Speziale/ Juan Rodriguez/
+                    Joel Damato
 
-  
-<footer class="bg-dark text-center text-white">
-
-  <div class="container p-4 pb-0">
-
-    <section class="mb-4">
-
-      <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-
-      <a class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i class="fab fa-twitter"></i></a>
-
-      <a class="btn text-white btn-floating m-1" style="background-color: #dd4b39;" href="#!" role="button"><i class="fab fa-google"></i></a>
-
-
-      <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i class="fab fa-instagram"></i></a>
-
-      <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
-
-      <a class="btn text-white btn-floating m-1" style="background-color: #333333; "href="#!" role="button"><i class="fab fa-github"></i></a>
-    </section>
-
-  </div>
-
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    <p>© 2023 Copyright : Cartolano Facundo | Damato Joel | Dimaro F Joaquin | Rodriguez Juan | Speziale Lucas </p>
-  </div>
-
-</footer>
-<script src="..//app/checkOut.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="sweetalert2.all.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
+                </p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
