@@ -440,6 +440,9 @@ textarea:hover {
   .toys-container{
       padding: 1rem !important;
   }
+  .pharmacy-container{
+    padding: 1.2rem !important;
+  }
   .filter-container{
       flex-direction: column-reverse !important;
   }
@@ -456,5 +459,11 @@ textarea:hover {
   }
   .slogan-light{
       display: none;
+  }
+  .modal{
+    text-align: center;
+  }
+  .img-modal{
+    max-height: 300px !important;
   }
 }

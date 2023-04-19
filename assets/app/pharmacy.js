@@ -139,10 +139,10 @@ function imprimirModal(producto, container) {
                     </div>
                     <div class="modal-body">
                         <div class="row p-2 mb-3">
-                            <div class="col-6">
-                                <img src="${producto.imagen}" class="img-thumbnail" alt="">
+                            <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <img src="${producto.imagen}" class="img-thumbnail img-modal" alt="">
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <div class="row mb-2">
                                     <span class="title-cart-product">${producto.producto}</span>
                                     <span class="category-cart-product">${producto.categoria}</span>
