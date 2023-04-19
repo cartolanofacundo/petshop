@@ -26,7 +26,7 @@ export const  getProductInCart = (product) => {
     return false
 }
 function templateProductCard(product, isInCart = false, productCart = undefined, isFavorite = false) {
-    return `<div class="col-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+    return `<div class="col-12 col-md-6 col-lg-3 col-xl-3 col-xxl-3">
                         <div class="card product-card position-relative">
                             ${stockAlert(product.disponibles)}
                             ${favoriteButton(product, isFavorite)}

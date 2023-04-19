@@ -61,7 +61,7 @@ export const addToCart = (e) => {
         }
 
         createItemsLS('compras', compras)
-        renderCards(filtrar(pharmacyProducts), $productCardsContainer)
+        renderCards(pharmacyProducts, $productCardsContainer)
         renderCart(compras, $cartContainer)
         renderCartBadge(compras)
     }

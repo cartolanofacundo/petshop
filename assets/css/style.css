@@ -430,7 +430,7 @@ textarea:hover {
 .modal-background{
   background-color: var(--M50) !important;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .cart-button {
       width: 100%;
   }
