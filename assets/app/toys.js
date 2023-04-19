@@ -1,6 +1,14 @@
 const $buscador=document.getElementById('searchBar')
 const $categoria1=document.getElementById('category1')
 const $categoria2=document.getElementById('category2')
+const $carrito = document.getElementById("cartProductsContainer")
+const $remove = document.getElementById("removeAllButton")
+const $subtot = document.getElementById("subtotalPrice")
+const $monto = document.getElementById('montos')
+
+
+
+
 
 let $template=document.getElementById('productsContainer')
 
@@ -16,10 +24,11 @@ fetch('https://mindhub-xj03.onrender.com/api/petshop')
                 crearCarta(jugueteria,$template)
 let favoritos = JSON.parse(localStorage.getItem('favoritos')) || []
 let compras = JSON.parse(localStorage.getItem('compras')) || []
+console.log(compras)
                 
 
 
-
+//funcion para guardar en local storage los elementos que fueron seleccionados como favoritos por el usuario
 const funcionEvento = (e) => {
     const favid = e.target.dataset.favid
     if(favid){
@@ -41,7 +50,7 @@ const funcionEvento = (e) => {
     }
 }
 
-
+//funcion para guardar en local storage los elementos que fueron seleccionados por el usuario con el boton compras
 const funcionEvento2 = (e) => {
     const compid = e.target.dataset.compid
     if(compid){
@@ -53,57 +62,104 @@ const funcionEvento2 = (e) => {
 
         } else{
             const carts = todasLasCartas.find( comp => comp._id === compid)
+            carts.items = 1
             compras.push(carts)
         }
         
         e.target.classList.toggle('btn-danger')
-        console.log(compras)
+        
         
         localStorage.setItem('compras', JSON.stringify(compras))
     }
-    crearCartaCarrito(compras, $carrito)   
+    crearCartaCarrito(compras, $carrito)  
+    renderSubtotal(); 
 }
 $template.addEventListener('click', funcionEvento)
 $template.addEventListener('click', funcionEvento2)
 
-console.log(compras)
-
+//funcion para almacenar las cartas que el usuario selecciona con compras, dentro del carrito
 function crearCartaCarrito(array, lugar) {
     const template = array.reduce((acc, act) => {
-        return (acc + `<div class="offcanvas-body">
-        <div class="card mb-3 ">
-          <div class="row g-0 d-flex align-items-center px-2">
-            <div class="col-md-4">
-              <img src="${act.imagen}" style="width: 20px;"  alt="imagen del producto" >
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">${act.producto}</h5>
-                <div class="container-card d-flex justify-content-between align-items-end text-center">
-                  <div class="btn-group me-2 align-items-center" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-outline-secondary">-</button>
-                    <button type="button" class="btn btn-outline-secondary">${act.disponibles}</button>
-                    <button type="button" class="btn btn-outline-secondary">+</button>
-                  </div>
-                  <div class="price">
-                    <span style="font-size: 12px !important;" class="text-muted">Subtotal:</span>
-                    <span style="font-size: 16px !important; font-weight: bold !important;">$${act.precio}</span>
+      return (acc + `
+        <div class="offcanvas-body">
+          <div class="card mb-3 ">
+            <div class="row g-0 d-flex align-items-center px-2">
+              <div class="col-md-4">
+                <img src="${act.imagen}" style="width: 20px;" alt="imagen del producto" >
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">${act.producto}</h5>
+                  <div class="container-card d-flex justify-content-between align-items-end text-center">
+                    <div class="btn-group me-2 align-items-center" role="group" aria-label="First group">
+                      <button type="button" class="btn btn-outline-secondary" id="botonMenos" data-id="${act._id}" data-accion="restar">-</button>
+                      <button type="button" class="btn btn-outline-secondary" id="botonInicial_${act._id}">${act.items}</button>
+                      <button type="button" class="btn btn-outline-secondary" id="botonMas" data-id="${act._id}" data-accion="agregar">+</button>
+                    </div>
+                    <div class="price">
+                      <span style="font-size: 12px !important;" class="text-muted">Subtotal:</span>
+                      <span id="montos" style="font-size: 16px !important; font-weight: bold !important;">$${act.precio * act.items}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>`);
+          </div>`);
     }, '');
-    lugar.innerHTML = template
+    lugar.innerHTML = template;
 }
 
-const $carrito = document.getElementById("cartProductsContainer")
-crearCartaCarrito(compras, $carrito)
 
 
 
+
+
+
+
+
+
+//funcion para sumar 1 o restar 1 item al elemento ya seleccionado por el usuario
+function modificarItem(id, accion){
+    if(accion === "agregar"){
+    for (const producto of compras) {
+        if(producto._id === id && producto.items < producto.disponibles){
+            producto.items ++
+        }
+        
+    }
+
+    } else{
+        
+        for (const producto of compras) {
+            if(producto._id === id){
+                
+            if(producto.items <= 1){
+                compras = compras.filter(productoCompras => productoCompras._id !== producto._id)
+                break
+            } else{
+                producto.items --
+            }
+            
+            }
+        }
+    }
+    localStorage.setItem('compras', JSON.stringify(compras))
+    crearCartaCarrito(compras, $carrito)
+}
+$carrito.addEventListener('click', (e)=> {
+    const id = e.target.dataset.id
+    const accion = e.target.dataset.accion
+    modificarItem(id, accion)
+    renderSubtotal();
+
+})
+
+
+
+
+
+
+ //escuchadores y filtros por categorias y busquedas !!!!IMPORTANTE REPARAR LOS FILTROS!!!!!
                 
 $categoria1.addEventListener('click', (e) => {
 let men= menor(jugueteria,$categoria1.checked)
@@ -132,9 +188,37 @@ $buscador.addEventListener('input', (e)=> {
         crearCarta(resultado,$template)}
 })
 
+$remove.addEventListener('click', e =>{
+    localStorage.removeItem('compras')
+    compras = []
+    crearCartaCarrito(compras, $carrito)
+    renderSubtotal();
+})
+crearCartaCarrito(compras, $carrito)
+
+
+function subtotal(array){
+    let subtotal = 0
+    for (const monto of array) {
+        if(array.length === 0){
+            return 0
+        } else{ 
+            subtotal += monto.precio * monto.items
+        } 
+    } return subtotal
+}
+
+renderSubtotal();
+
+function renderSubtotal(){
+    $subtot.innerHTML = subtotal(compras)
+}
+
+
 })
 .catch(err => console.log(err))
 
+//HASTA ACA LLEGA EL FECTH !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 function search(array,texto){
@@ -148,6 +232,8 @@ function search(array,texto){
 //arreglar boton compras quede pintado 
 //acomodar el carrito para agregar los elementos sin refrescar la pagina 
 }
+
+//funcion para crear cartas e imprimirlas 
 function crearCarta(array, lugar) {
     const template = array.reduce((acc, act) => {
         let favid = act._id
@@ -187,7 +273,6 @@ function crearCarta(array, lugar) {
 
 
 
-
 function menor(array,check){
     if(check){
         filtromenor=array.filter(carta => carta.precio <= 1600)
@@ -204,3 +289,9 @@ function mayor(array,check){
         return array
         }
 }
+
+//renderiza subtotal 
+
+
+
+
