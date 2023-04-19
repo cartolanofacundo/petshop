@@ -66,8 +66,6 @@ export const addToCart = (e) => {
 }
 export const addToFavorite = (e) => {
     const favid = e.target.dataset.favid
-    console.log("click")
-    console.log(e.target.dataset)
     if (favid) {
 
         const favoritoTrue = favorites.some(fav => fav._id == favid)
@@ -97,10 +95,7 @@ let incrementItems = (e) => {
 }
 let decrementItems = (e) => {
     const decrementId = e.target.dataset.decrementid
-    console.log("click")
-    console.log(e.target.dataset)
     if (decrementId) {
-        console.log("entre")
         compras = decrementItemLS('compras', compras, decrementId )
         renderCards(pharmacyProducts, $productCardsContainer)
         renderCart(compras, $cartContainer)
@@ -125,5 +120,3 @@ $cartButton.addEventListener('click', () => {
     renderCartBadge(compras)
 })
 $cartRemoveAll.addEventListener("click", removeAll)
-
-
