@@ -1,57 +1,42 @@
+import { data } from "../modules/utils.js"
+const productCost = document.getElementById('productsCost')
+ const shippingCost= document.getElementById('shippingCost')
+ const taxesCost= document.getElementById('taxes')
+ const totalCompra = document.getElementById('total')
+ let todasLasCartas= data;
+ 
+            localStorage.setItem('compras', JSON.stringify(todasLasCartas))    
+          
 
-function validName() {
-    const nameInput = document.getElementById("name");
-    const errorName = document.getElementById("errorName");
-    
-    if (nameInput.value === "") {
-      errorName.textContent = "Por favor ingrese su nombre.";
-      return false;
-    } else {
-      errorName.textContent = "";
-      return true;
-    }
-  }
-  
-  // Función de validación para el campo email
-  function validEmail() {
-    const emailInput = document.getElementById("email");
-    const errorEmail = document.getElementById("errorEmail");
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (emailInput.value === "") {
-      errorEmail.textContent = "Por favor ingrese su correo electrónico.";
-      return false;
-    } else if (!emailRegex.test(emailInput.value)) {
-      errorEmail.textContent = "Por favor ingrese un correo electrónico válido.";
-      return false;
-    } else {
-      errorEmail.textContent = "";
-      return true;
-    }
-  }
-  
-  // Agregar evento al formulario
-  const formulario = document.getElementById("miForm");
-  formulario.addEventListener("submit", function(event) {
-    event.preventDefault(); // Evitar que el formulario se envíe
-    
-    // Validar campos
-    const esValidoNombre = validName();
-    const esValidoEmail = validEmail();
-    
-    // Si hay algún error, mostrar mensaje y evitar envío
-    if (!esValidoNombre || !esValidoEmail) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Revisa los errores al completar tu compra en tu compra',
-            
-            
-          })
-      return false;
-    }
-    
-    // Si no hay errores, enviar formulario
-    formulario.submit();
-    
-  });
-  
+ let compras = JSON.parse(localStorage.getItem('compras')) || []
+ totalPoductos()
+
+function totalPoductos(){
+  let sumatoriaTotal=0
+  let shipping= 1550
+
+for(let compra of compras){
+
+  sumatoriaTotal+=compra.item * compra.precio
+  let taxes= compra.precio * 0.21
+  productCost.innerText=sumatoriaTotal
+shippingCost.innerText = shipping
+taxesCost.innerText= taxes
+totalCompra.innerText= sumatoriaTotal + shipping + taxes
+}
+
+}
+const order = document.getElementById("makeAnOrder")
+
+
+order.addEventListener('click', (e)=>{
+  e.preventDefault()
+  Swal.fire(
+      'Good job!',
+      'Your inquiry was successfully sent!',
+      'success',
+  )
+   setTimeout(function(){
+    window.history.back();
+   }, 2000)
+})
