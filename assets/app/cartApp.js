@@ -16,10 +16,9 @@ export const incrementItems = (e) => {
 }
 export const decrementItems = (e) => {
     const decrementId = e.target.dataset.decrementid
-    console.log("click")
-    console.log(e.target.dataset)
+    
     if (decrementId) {
-        console.log("entre")
+        
         compras = decrementItemLS('compras', compras, decrementId )
         renderCart(compras, $cartContainer)
         renderCartBadge(compras)

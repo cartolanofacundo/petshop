@@ -37,7 +37,7 @@ function templateProductCard(product, isInCart = false, productCart = undefined,
                             <div class="card-body position-relative">
                                 <h5 class="card-title">${product.producto}</h5>
                                 <p class="card-text">${product.categoria}</p>
-                                <a class="stretched-link see-more-link" data-bs-toggle="modal" data-bs-target="#productModal" data-id="product._id">See more</a>
+                                <a class="stretched-link see-more-link" data-bs-toggle="modal" data-bs-target="#productModal" data-id="${product._id}">See more</a>
                             </div>
                             <div class="card-footer card-product-footer">
                                 <span class="price-product">$${product.precio}</span>

@@ -2,12 +2,12 @@ export const renderCart = (array, $container) => {
     let $subcontainer = document.getElementById("priceCart")
     let $checkoutButton = document.getElementById("checkoutButtonCart")
     let $removeAllItems = document.getElementById("removeAllButton");
-    console.log($subcontainer)
+
     let template = ""
     if (array.length === 0) {
         $container.innerHTML = `<span class="price-cart-product my-5 text-center">No hay productos para mostrar</span>`
         $subcontainer.innerHTML = "-"
-        console.log($checkoutButton)
+        
         $checkoutButton.disabled = true;
         $removeAllItems.disabled = true;
         return
@@ -21,7 +21,7 @@ export const renderCart = (array, $container) => {
     $removeAllItems.disabled = false;
 }
 export const createCardCart = (product) => {
-    console.log("en template")
+    
     let template = `
     <div class="row cart-product-container p-2 mb-3">
         <div class="col-3">

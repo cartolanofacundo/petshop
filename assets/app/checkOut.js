@@ -27,7 +27,7 @@ const order = document.getElementById("form")
 
 order.addEventListener('submit', (e) => {
   e.preventDefault()
-  console.log(e);
+  
   Swal.fire(
     'Good job!',
     'your purchase was processed',

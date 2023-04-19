@@ -7,6 +7,7 @@ let $cartContainer = document.getElementById("cartProductsContainer")
 let $cartButton = document.getElementById("cartButton");
 let $productCardsContainer = document.getElementById('productsContainer')
 let $cartRemoveAll = document.getElementById("removeAllButton")
+let $modalCont = document.getElementById("productModal")
 let pharmacyProducts = []
 let favorites = []
 let compras = []
@@ -120,3 +121,52 @@ $cartButton.addEventListener('click', () => {
     renderCartBadge(compras)
 })
 $cartRemoveAll.addEventListener("click", removeAll)
+
+
+
+function imprimirModal(producto, container) {
+    
+        const modal = `
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content modal-background">
+                    <div class="modal-header border-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row p-2 mb-3">
+                            <div class="col-6">
+                                <img src="${producto.imagen}" class="img-thumbnail" alt="">
+                            </div>
+                            <div class="col-6">
+                                <div class="row mb-2">
+                                    <span class="title-cart-product">${producto.producto}</span>
+                                    <span class="category-cart-product">${producto.categoria}</span>
+                                </div>
+                                <div class="row mb-2 category-cart-product p-3">
+                                    ${producto.descripcion}
+                                </div>
+                                <div class="row mb-2 p-1">
+                                    <span class="category-cart-product">Price: $ ${producto.precio}</span>
+                                </div>
+                                <div class="row mb-2 p-1">
+                                    <span class="category-cart-product">Stock: ${producto.disponibles}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+    container.innerHTML = modal
+}
+
+document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('see-more-link')) {
+        const productId = event.target.getAttribute('data-id');
+        const product = pharmacyProducts.find(item => item._id === productId);
+        if (product) {
+            imprimirModal(product, document.getElementById('productModal'));
+        }
+    }
+});
