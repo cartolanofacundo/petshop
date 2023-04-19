@@ -2,6 +2,10 @@ import { getItemsLS } from "./localStorage.js";
 
 export const renderCards = (array, $container) => {
     let template = "";
+    if(array.length === 0){
+        $container.innerHTML = `<h2 class="title-secondary text-center my-5">No hay productos para mostrar</h2>`
+        return 
+    }
     for (let product of array) {
         template += templateProductCard(product, isInCart(product), getProductInCart(product), isFavorite(product))
     }
@@ -62,13 +66,13 @@ function stockAlert(stock) {
 function cartButton(product, isInCart = false, productCart) {
     let button = `<button href="#" class="btn btn-primary" data-compid=${product._id}> + Add</button>`
     if (product.disponibles === 0) {
-        return `<button href="#" class="btn btn-secondary" disabled> + Add</button>`
+        return `<button href="#" class="btn btn-primary" disabled> + Add</button>`
     }
     if (isInCart) {
         return `<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                    <button type="button" class="btn btn-outline-primary product-card-group p-2" data-decrementid="${product._id}"><i class="bi bi-dash"></i></button>
+                    <button type="button" class="btn btn-outline-primary product-card-group p-2" data-decrementid="${product._id}"><i class="bi ${productCart.item === 1 ? "bi-trash" : "bi-dash"}"></i></button>
                     <button type="button" class="btn btn-outline-primary unit-btn-product p-2">${productCart.item} U.</button>
-                    <button type="button" class="btn btn-outline-primary product-card-group p-2" data-incrementid="${product._id}"><i class="bi bi-plus"></i></button>
+                    <button type="button" class="btn ${productCart.item === productCart.disponibles ? "btn-outline-secondary" : "btn-outline-primary"}  product-card-group p-2" data-incrementid="${product._id}" ${productCart.item === productCart.disponibles ? "disabled" : ""} ><i class="bi bi-plus"></i></button>
                 </div>`
     }
     return button;

@@ -1,14 +1,16 @@
-import { createItemsLS, getItemsLS, incrementItemLS, decrementItemLS } from "../modules/localStorage.js";
+import { createItemsLS, getItemsLS, incrementItemLS, decrementItemLS, clearItemsLS } from "../modules/localStorage.js";
 import { filterProducts } from "../modules/filterLogic.js";
 import { renderCards } from "../modules/productsLogic.js";
+import { renderCart, renderCartBadge } from "../modules/cartLogic.js";
 const $buscador = document.getElementById('searchBar')
-const $categoria1 = document.getElementById('category1')
-const $categoria2 = document.getElementById('category2')
-
+let $cartContainer = document.getElementById("cartProductsContainer")
+let $cartButton = document.getElementById("cartButton");
 let $productCardsContainer = document.getElementById('productsContainer')
+let $cartRemoveAll = document.getElementById("removeAllButton")
 let pharmacyProducts = []
 let favorites = []
 let compras = []
+
 
 let products;
 fetch('https://mindhub-xj03.onrender.com/api/petshop')
@@ -20,9 +22,10 @@ fetch('https://mindhub-xj03.onrender.com/api/petshop')
         
         favorites = getItemsLS('favoritos')
         compras = getItemsLS('compras')
+        
     })
     .catch(err => console.log(err))
-
+    renderCartBadge(getItemsLS('compras'))
 
 document.getElementById("searchBar").addEventListener("keyup", (e) => {
     e.preventDefault()
@@ -58,6 +61,7 @@ export const addToCart = (e) => {
 
         createItemsLS('compras', compras)
         renderCards(pharmacyProducts, $productCardsContainer)
+        renderCartBadge(getItemsLS('compras'))
     }
 }
 export const addToFavorite = (e) => {
@@ -80,16 +84,18 @@ export const addToFavorite = (e) => {
         renderCards(pharmacyProducts, $productCardsContainer)
     }
 }
-export const incrementItems = (e) => {
+let incrementItems = (e) => {
     const incrementId = e.target.dataset.incrementid
     if (incrementId) {
          
 
         compras = incrementItemLS('compras', compras, incrementId )
         renderCards(pharmacyProducts, $productCardsContainer)
+        renderCart(compras,$cartContainer)
+        renderCartBadge(compras)
     }
 }
-export const decrementItems = (e) => {
+let decrementItems = (e) => {
     const decrementId = e.target.dataset.decrementid
     console.log("click")
     console.log(e.target.dataset)
@@ -97,15 +103,27 @@ export const decrementItems = (e) => {
         console.log("entre")
         compras = decrementItemLS('compras', compras, decrementId )
         renderCards(pharmacyProducts, $productCardsContainer)
+        renderCart(compras, $cartContainer)
+        renderCartBadge(compras)
     }
 }
 
-
+function removeAll() {
+    compras = clearItemsLS('compras')
+    renderCards(pharmacyProducts, $productCardsContainer)
+    renderCart(compras, $cartContainer)
+    renderCartBadge(compras)
+}
 document.getElementById("productsContainer").addEventListener('click', addToFavorite)
 document.getElementById("productsContainer").addEventListener("click", addToCart)
 document.getElementById("productsContainer").addEventListener('click', incrementItems);
 document.getElementById("productsContainer").addEventListener('click', decrementItems);
-
-
+$cartContainer.addEventListener('click', incrementItems);
+$cartContainer.addEventListener('click', decrementItems);
+$cartButton.addEventListener('click', () => {
+    renderCart(compras, $cartContainer)
+    renderCartBadge(compras)
+})
+$cartRemoveAll.addEventListener("click", removeAll)
 
 

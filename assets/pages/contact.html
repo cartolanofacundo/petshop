@@ -49,9 +49,9 @@
               </li>
             </ul>
             <button class="btn btn-primary cart-button position-relative" type="button" data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight"><i class="bi bi-cart-fill"></i>
+              data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight" id="cartButton"><i class="bi bi-cart-fill"></i>
               <span class="position-absolute top-0 start-100 translate-middle p-2  rounded-pill informative-badge"
-                id="cartProductBadge">100
+                id="cartProductBadge">0
               </span>
             </button>
           </div>
@@ -103,10 +103,10 @@
           </div>
           <div class="offcanvas-end border-top">
             <div class="subtotal-container border-bottom mb-3 py-3">
-              <span class="subtotal-title me-3">Subtotal: <span class="subtotal">$6520</span></span>
+              <span class="subtotal-title me-3">Subtotal: <span class="subtotal" id="priceCart">$6520</span></span>
             </div>
 
-            <a class="btn btn-primary w-100" href="./checkout.html">Continue to checkout</a>
+            <button class="btn btn-primary w-100" onclick="location.href='./checkout.html'" id="checkoutButtonCart">Continue to checkout</button>
           </div>
         </div>
       </div>
@@ -176,7 +176,8 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="../app/contact.js"></script>
+  <script type="module" src="../app/contact.js"></script>
+  <script type="module" src="../app/cartApp.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,14 @@
+import { renderCartBadge } from "../modules/cartLogic.js";
+import { getItemsLS } from "../modules/localStorage.js";
 
 const carrusel = document.querySelector(".carrusel-items");
  
 let intervalo = null;
 let step = 1;
 let maxScrollLeft = carrusel.scrollWidth - carrusel.clientWidth;
+
+renderCartBadge(getItemsLS('compras'))
+
 
 const start = () => {
     intervalo = setInterval(function () {

@@ -48,10 +48,11 @@
                             </li>
                         </ul>
                         <button class="btn btn-primary cart-button position-relative" type="button"
-                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1"
-                            aria-controls="offcanvasRight"><i class="bi bi-cart-fill"></i>
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight"
+                            id="cartButton"><i class="bi bi-cart-fill"></i>
                             <span
-                                class="position-absolute top-0 start-100 translate-middle p-2  rounded-pill informative-badge">100
+                                class="position-absolute top-0 start-100 translate-middle p-2  rounded-pill informative-badge"
+                                id="cartProductBadge">0
                             </span>
                         </button>
                     </div>
@@ -107,10 +108,12 @@
                     </div>
                     <div class="offcanvas-end border-top">
                         <div class="subtotal-container border-bottom mb-3 py-3">
-                            <span class="subtotal-title me-3">Subtotal: <span class="subtotal">$6520</span></span>
+                            <span class="subtotal-title me-3">Subtotal: <span class="subtotal"
+                                    id="priceCart">$6520</span></span>
                         </div>
 
-                        <a class="btn btn-primary w-100" href="./checkout.html">Continue to checkout</a>
+                        <button class="btn btn-primary w-100" onclick="location.href='./checkout.html'"
+                            id="checkoutButtonCart">Continue to checkout</button>
                     </div>
                 </div>
             </div>
@@ -154,83 +157,9 @@
                 </div>
                 <div class="products-container">
                     <div class="row gx-3 gy-3 d-flex align-items-stretch" id="productsContainer">
-                        
-                        <div class="col-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            <div class="card product-card position-relative">
-                                <button
-                                    class="btn btn-outline-info position-absolute favorite-button favorite-button-checked"><i
-                                        class="bi bi-heart-fill"></i></button>
-                                <div class="wrapper-image">
-                                    <img src="../images/hero-pet.jpg" class="card-img-top" alt="...">
-                                </div>
-                                
-                                <div class="card-body position-relative">
+                        <h2 class="title-secondary text-center my-5">No hay productos para mostrar</h2>
 
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk
-                                        of the card's content.</p>
-                                    <a class="stretched-link see-more-link" data-bs-toggle="modal"
-                                        data-bs-target="#productModal">See more</a>
-                                </div>
-                                <div class="card-footer card-product-footer">
-                                    <span class="price-product">$1500</span>
-                                    <a href="#" class="btn btn-primary"> + Add</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            <div class="card product-card position-relative">
-                                <span
-                                    class="badge last-units-product position-absolute top-0 start-50 translate-middle">Last
-                                    units!</span>
-                                <button class="btn btn-outline-info position-absolute favorite-button"><i
-                                        class="bi bi-heart"></i></button>
-                                <img src="../images/hero-pet.jpg" class="card-img-top" alt="...">
-                                <div class="card-body position-relative">
-
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk
-                                        of the card's content.</p>
-                                    <a class="stretched-link see-more-link" data-bs-toggle="modal"
-                                        data-bs-target="#productModal">See more</a>
-                                </div>
-                                <div class="card-footer card-product-footer">
-                                    <span class="price-product">$1500</span>
-                                    <a href="#" class="btn btn-primary"> + Add</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            <div class="card product-card position-relative">
-                                <button class="btn btn-outline-info position-absolute favorite-button"><i
-                                        class="bi bi-heart"></i></button>
-                                <img src="../images/hero-pet.jpg" class="card-img-top" alt="...">
-                                <div class="card-body position-relative">
-
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk
-                                        of the card's content.</p>
-                                    <a class="stretched-link see-more-link" data-bs-toggle="modal"
-                                        data-bs-target="#productModal">See more</a>
-                                </div>
-                                <div class="card-footer card-product-footer">
-                                    <span class="price-product">$1500</span>
-                                    <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                                        <button type="button" class="btn btn-outline-primary product-card-group"><i
-                                                class="bi bi-dash"></i></button>
-                                        <button type="button" class="btn btn-outline-primary unit-btn-product">2
-                                            U.</button>
-                                        <button type="button" class="btn btn-outline-primary product-card-group"><i
-                                                class="bi bi-plus"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-
                 </div>
             </section>
         </main>
@@ -289,7 +218,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-        <script type="module" src="../app/pharmacy.js"></script>
+    <script type="module" src="../app/pharmacy.js"></script>
 </body>
 
 </html>

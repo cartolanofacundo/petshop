@@ -30,8 +30,8 @@ export const removeItemLS = (key, array, id) =>{
    localStorage.setItem(key, JSON.stringify(newArray));
    return newArray
 }
-export const clearItemsLS = (key, array) => {
-    let newArray = array;
+export const clearItemsLS = (key) => {
+    let newArray = [];
     localStorage.removeItem(key);
     return newArray;
 }

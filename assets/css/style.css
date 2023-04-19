@@ -123,6 +123,9 @@
   background-color: var(--M600) !important;
   font-weight: 600 !important;
 }
+.btn-primary:disabled {
+  border: none !important;
+}
 
 .btn-primary:hover {
   border-color: var(--M500);
@@ -153,6 +156,10 @@
   color: var(--M800);
   font-weight: bolder;
   font-size: 1.2rem;
+}
+.price-cart-product-bajada{
+  font-size: .5rem !important;
+  font-weight: normal !important;
 }
 
 .btn-outline-primary {
