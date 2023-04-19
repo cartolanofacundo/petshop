@@ -43,7 +43,12 @@ document.getElementById("checkboxContainer").addEventListener("change", (e) => {
     renderCards(products, $productCardsContainer)
 })
 
-
+function filtrar(array){
+    const selectedFilters = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(check => check.value);
+    const filterString = $buscador.value
+    let products = filterProducts(filterString, array, selectedFilters);
+    return products
+}
 
 export const addToCart = (e) => {
     const compid = e.target.dataset.compid
@@ -61,7 +66,7 @@ export const addToCart = (e) => {
         }
 
         createItemsLS('compras', compras)
-        renderCards(pharmacyProducts, $productCardsContainer)
+        renderCards(filtrar(pharmacyProducts), $productCardsContainer)
         renderCartBadge(getItemsLS('compras'))
     }
 }
@@ -80,7 +85,7 @@ export const addToFavorite = (e) => {
         }
 
         createItemsLS('favoritos', favorites)
-        renderCards(pharmacyProducts, $productCardsContainer)
+        renderCards(filtrar(pharmacyProducts), $productCardsContainer)
     }
 }
 let incrementItems = (e) => {
@@ -89,7 +94,7 @@ let incrementItems = (e) => {
          
 
         compras = incrementItemLS('compras', compras, incrementId )
-        renderCards(pharmacyProducts, $productCardsContainer)
+        renderCards(filtrar(pharmacyProducts), $productCardsContainer)
         renderCart(compras,$cartContainer)
         renderCartBadge(compras)
     }
@@ -98,7 +103,7 @@ let decrementItems = (e) => {
     const decrementId = e.target.dataset.decrementid
     if (decrementId) {
         compras = decrementItemLS('compras', compras, decrementId )
-        renderCards(pharmacyProducts, $productCardsContainer)
+        renderCards(filtrar(pharmacyProducts), $productCardsContainer)
         renderCart(compras, $cartContainer)
         renderCartBadge(compras)
     }
@@ -106,7 +111,7 @@ let decrementItems = (e) => {
 
 function removeAll() {
     compras = clearItemsLS('compras')
-    renderCards(pharmacyProducts, $productCardsContainer)
+    renderCards(filtrar(pharmacyProducts), $productCardsContainer)
     renderCart(compras, $cartContainer)
     renderCartBadge(compras)
 }
